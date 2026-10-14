@@ -78,7 +78,7 @@ Bands: Low (0-29) | Moderate (30-59) | High (60-79) | Critical (80-100)
 ## Running Tests
 
 ```bash
-npm test   # 10 tests: SHA-256, tamper detection, INR formatting, risk rules
+npm test   # 22 tests: SHA-256, tamper detection, INR formatting, risk rules, neural voice
 ```
 
 ## Production Build
@@ -86,6 +86,31 @@ npm test   # 10 tests: SHA-256, tamper detection, INR formatting, risk rules
 ```bash
 npm run build:client
 ```
+
+---
+
+## 24/7 Cloud Deployment (No Local Machine Required)
+
+Because FINOVA includes an Express API server with SQLite persistence (`better-sqlite3`), risk scoring, and neural voice synthesis, it runs 24/7 in a cloud container without needing your personal computer to stay open or online.
+
+### Option 1: 1-Click Deploy on Render (Recommended)
+
+1. Go to [Render Dashboard](https://dashboard.render.com/) and click **New + > Web Service** (or **Blueprint**).
+2. Connect your GitHub repository: `https://github.com/AtharvProjects/finova`.
+3. Render will automatically detect [`render.yaml`](./render.yaml) or [`Dockerfile`](./Dockerfile):
+   - **Build Command**: `npm install && cd client && npm install && cd .. && npm run build:client`
+   - **Start Command**: `npx tsx server/src/index.ts`
+   - **Port**: `4000`
+4. Click **Deploy**. Your application will be live at `https://finova-xxxx.onrender.com` 24/7.
+
+### Option 2: Add Cloudflare in Front of Render (Custom Domain & Edge CDN)
+
+1. In your Cloudflare Dashboard, go to your domain's **DNS Records**.
+2. Add a `CNAME` record:
+   - **Name**: `finova` (or `@`)
+   - **Target**: `finova-xxxx.onrender.com`
+   - **Proxy status**: Proxied (Orange cloud enabled)
+3. Your app now runs on Cloudflare's global edge network with DDoS protection and SSL, while Render runs the 24/7 backend container!
 
 ---
 
