@@ -7,7 +7,7 @@ export const DEFAULT_VOICE_CONFIG: VoiceConfig = {
   rate: '+0%',
   pitch: '+0Hz',
   autoSpeak: true,
-  elevenLabsApiKey: 'sk_55de6cfbc042ae9273c225902a84f3f2f780d701d026791f',
+  elevenLabsApiKey: 'sk_35c086d1dafdd97e77cad8f601281d8c5b081fdf5b82348d',
 };
 
 type VoiceStateListener = (state: {
