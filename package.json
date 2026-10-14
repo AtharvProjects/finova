@@ -1,0 +1,45 @@
+{
+  "name": "finova",
+  "version": "1.0.0",
+  "description": "FINOVA — AI Financial Intelligence & Blockchain Verification Platform",
+  "main": "server/src/index.ts",
+  "scripts": {
+    "server": "tsx watch server/src/index.ts",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently -k -n \"server,client\" -c \"cyan,magenta\" \"npm run server\" \"npm run client\"",
+    "build": "npm run build:client",
+    "start": "tsx server/src/index.ts",
+    "build:client": "npm run build --prefix client",
+    "cloudflare:tunnel": "cloudflared tunnel --url http://localhost:4000",
+    "deploy:cloudflare": "npm run build:client && cloudflared tunnel --url http://localhost:4000",
+    "seed": "tsx server/src/seed.ts",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "fintech",
+    "blockchain",
+    "sha256",
+    "financial-intelligence",
+    "ai-voice"
+  ],
+  "author": "FINOVA Engineering Team",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
+    "express": "^4.21.2",
+    "msedge-tts": "^2.1.0",
+    "tsx": "^4.19.3",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^24.19.2",
+    "concurrently": "^9.2.1",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.7"
+  }
+}

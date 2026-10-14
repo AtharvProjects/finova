@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #F7F4EE;
+    --bg-surface: #FFFFFF;
+    --bg-card: #FFFFFF;
+    --primary: #244A3D;
+    --primary-hover: #1E3E33;
+    --primary-light: #E9EFEA;
+    --accent-terracotta: #C77758;
+    --accent-terracotta-light: #F7ECE7;
+    --accent-sand: #E8DCCB;
+    --accent-sand-light: #FAF7F2;
+    --text-primary: #292D2B;
+    --text-secondary: #77766F;
+    --text-muted: #9C9A93;
+    --border-soft: #E6E0D6;
+    --border-strong: #D5CEBF;
+    --success: #2E6F40;
+    --success-bg: #EDF6EE;
+    --warning: #B47D28;
+    --warning-bg: #FDF6E9;
+    --error: #A94442;
+    --error-bg: #FCEEEE;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Tabular numbers for financial metrics */
+  .tabular-nums, .num-inr {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F7F4EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8D2C5;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #BDB6A7;
+}
+
+/* Subtle fintech animations */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.65; }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Audio waveform bars animation for voice assistant */
+@keyframes waveAnim {
+  0%, 100% { height: 6px; }
+  50% { height: 24px; }
+}
+
+.wave-bar-1 { animation: waveAnim 1.2s ease-in-out infinite; }
+.wave-bar-2 { animation: waveAnim 0.9s ease-in-out 0.2s infinite; }
+.wave-bar-3 { animation: waveAnim 1.4s ease-in-out 0.4s infinite; }
+.wave-bar-4 { animation: waveAnim 1.1s ease-in-out 0.1s infinite; }
+.wave-bar-5 { animation: waveAnim 1.3s ease-in-out 0.3s infinite; }

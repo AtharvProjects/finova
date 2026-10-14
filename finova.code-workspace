@@ -1,0 +1,20 @@
+{
+  "folders": [
+    {
+      "name": "Finova (Root)",
+      "path": "."
+    },
+    {
+      "name": "Client (React + Vite)",
+      "path": "client"
+    },
+    {
+      "name": "Server (Express + SQLite)",
+      "path": "server"
+    }
+  ],
+  "settings": {
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true
+  }
+}
